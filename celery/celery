@@ -1,0 +1,53 @@
+sudo systemctl enable rabbitmq-server
+
+sudo systemctl start rabbitmq-server
+
+systemctl status rabbitmq-server
+
+celery -A zapio worker -l info -B
+
+celery -A demo worker -l info
+
+celery -A zapio beat -l info
+
+pip install celery
+pip install redis
+
+pip install django-celery-results
+
+pip install celery-progress
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_BACKEDN = 'django-db'
+
+from .tasks import go_to_sleep
+
+celery -A zapio worker -l info
+
+path('celery-progress',include('celery_progress.urls'))
+
+from celery_progress.backend import ProgressRecorder
+
+progress_recorder = ProgressRecorder(self)
+for i in range(5):
+	sleep(duration)
+	progress_recorder.set_progress(i+1,5,f'on iteration {i} ')
+
+
+celery -A progress beat -S django
+
+{% load static %}
+
+https://rakibul.net/django-celery-2
+
+
+zapio-celery.
+
+sudo supervisorctl stop celerybeat
+
+
+sudo supervisorctl stop zapio-celery
+
+
+
